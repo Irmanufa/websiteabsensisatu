@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>🚀 IRMAS Absensi | Instant Load</title>
+    <!-- FAVICON BASE64 -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+    
+    <!-- CRITICAL CSS INLINE - NO EXTERNAL FILES -->
+    <style>
+        /* ============================================
+           ULTRA OPTIMIZED CRITICAL CSS - 0ms LOAD
+           ============================================ */
+        
+        /* 1. RESET & BASE - MINIFIED */
+        *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{scroll-behavior:smooth;font-size:16px}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;color:#2d3748;line-height:1.6;overflow-x:hidden}
+
+        /* 2. VARIABLES */
+        :root{
+            --primary:#4361ee;--primary-dark:#3a0ca3;--secondary:#f72585;
+            --success:#4cc9f0;--warning:#ffd166;--danger:#ef476f;
+            --light:#f8f9fa;--dark:#121826;--gray-100:#f1f5f9;
+            --shadow-sm:0 2px 4px rgba(0,0,0,0.1);--shadow-md:0 4px 20px rgba(0,0,0,0.15);
+            --radius-sm:8px;--radius-md:12px;--radius-lg:20px;
+            --transition:all 0.3s cubic-bezier(0.4,0,0.2,1)
+        }
+
+        /* 3. UTILITY CLASSES */
+        .container{width:100%;max-width:100%;padding:0 1rem;margin:0 auto}
+        .flex{display:flex}.flex-col{flex-direction:column}
+        .items-center{align-items:center}.justify-center{justify-content:center}
+        .justify-between{justify-content:space-between}
+        .gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}
+        .w-full{width:100%}.h-full{height:100%}.min-h-screen{min-height:100vh}
+        .text-center{text-align:center}.hidden{display:none!important}
+        .relative{position:relative}.absolute{position:absolute}
+        .inset-0{top:0;right:0;bottom:0;left:0}
+        .z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}
+        .overflow-hidden{overflow:hidden}
+
+        /* 4. LOGIN PAGE SPECIFIC */
+        .login-wrapper{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:1rem;
+            background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            animation:gradientShift 15s ease infinite;
+            background-size:400% 400%
+        }
+
+        @keyframes gradientShift{
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+
+        .login-card{
+            background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(20px);
+            border-radius:var(--radius-lg);
+            padding:2rem;
+            width:100%;
+            max-width:440px;
+            box-shadow:var(--shadow-md);
+            border:1px solid rgba(255,255,255,0.2);
+            animation:fadeInUp 0.6s ease-out
+        }
+
+        @keyframes fadeInUp{
+            from{opacity:0;transform:translateY(20px)}
+            to{opacity:1;transform:translateY(0)}
+        }
+
+        .logo-header{
+            text-align:center;
+            margin-bottom:2rem
+        }
+
+        .logo-icon{
+            font-size:4rem;
+            background:linear-gradient(135deg,var(--primary),var(--secondary));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            margin-bottom:0.5rem
+        }
+
+        .logo-text{
+            font-size:2rem;
+            font-weight:900;
+            background:linear-gradient(135deg,var(--primary),var(--secondary));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            margin-bottom:0.25rem
+        }
+
+        .logo-subtitle{
+            color:#64748b;
+            font-size:0.875rem
+        }
+
+        /* 5. FORM ELEMENTS */
+        .input-group{
+            margin-bottom:1.25rem
+        }
+
+        .input-label{
+            display:flex;
+            align-items:center;
+            gap:0.5rem;
+            margin-bottom:0.5rem;
+            font-weight:600;
+            color:#475569
+        }
+
+        .input-field{
+            width:100%;
+            padding:0.875rem 1rem;
+            border:2px solid #e2e8f0;
+            border-radius:var(--radius-md);
+            font-size:1rem;
+            transition:var(--transition);
+            background:#fff
+        }
+
+        .input-field:focus{
+            outline:none;
+            border-color:var(--primary);
+            box-shadow:0 0 0 3px rgba(67,97,238,0.1)
+        }
+
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            gap:0.75rem;
+            padding:1rem 1.5rem;
+            border-radius:var(--radius-md);
+            font-weight:600;
+            font-size:1rem;
+            border:none;
+            cursor:pointer;
+            transition:var(--transition);
+            text-decoration:none;
+            width:100%;
+            background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+            color:white;
+            box-shadow:0 4px 15px rgba(67,97,238,0.3)
+        }
+
+        .btn:hover{
+            transform:translateY(-2px);
+            box-shadow:0 6px 25px rgba(67,97,238,0.4)
+        }
+
+        .btn:active{
+            transform:translateY(0)
+        }
+
+        /* 6. DASHBOARD STYLES */
+        .dashboard-container{
+            display:grid;
+            grid-template-columns:280px 1fr;
+            min-height:100vh;
+            background:#f8fafc
+        }
+
+        .sidebar{
+            background:linear-gradient(180deg,#121826 0%,#1e293b 100%);
+            color:white;
+            padding:1.5rem;
+            position:sticky;
+            top:0;
+            height:100vh;
+            overflow-y:auto
+        }
+
+        .main-content{
+            padding:1.5rem;
+            overflow-y:auto;
+            max-height:100vh
+        }
+
+        .mobile-menu-btn{
+            display:none;
+            position:fixed;
+            top:1rem;
+            left:1rem;
+            z-index:100;
+            background:var(--primary);
+            color:white;
+            width:48px;
+            height:48px;
+            border-radius:50%;
+            align-items:center;
+            justify-content:center;
+            font-size:1.25rem;
+            box-shadow:var(--shadow-md)
+        }
+
+        /* 7. NOTIFICATION */
+        .notification{
+            position:fixed;
+            top:1rem;
+            right:1rem;
+            background:white;
+            padding:1rem 1.5rem;
+            border-radius:var(--radius-md);
+            box-shadow:var(--shadow-md);
+            display:flex;
+            align-items:center;
+            gap:0.75rem;
+            z-index:1000;
+            transform:translateX(120%);
+            transition:transform 0.3s ease;
+            border-left:4px solid var(--primary)
+        }
+
+        .notification.show{
+            transform:translateX(0)
+        }
+
+        /* 8. RESPONSIVE BREAKPOINTS */
+        @media (max-width:1024px){
+            .dashboard-container{grid-template-columns:1fr}
+            .sidebar{position:fixed;left:-280px;z-index:90;transition:left 0.3s ease}
+            .sidebar.active{left:0}
+            .mobile-menu-btn{display:flex}
+            .main-content{padding:1rem;padding-top:4rem}
+        }
+
+        @media (max-width:640px){
+            .login-card{padding:1.5rem;margin:0.5rem}
+            .logo-icon{font-size:3rem}
+            .logo-text{font-size:1.5rem}
+            .main-content{padding:0.75rem;padding-top:4rem}
+        }
+
+        @media (max-width:320px){
+            html{font-size:14px}
+            .container{padding:0 0.5rem}
+        }
+
+        /* 9. PRINT STYLES */
+        @media print{
+            .no-print{display:none!important}
+            body{background:white!important}
+        }
+
+        /* 10. ACCESSIBILITY */
+        @media (prefers-reduced-motion:reduce){
+            *{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+        }
+    </style>
+</head>
+<body>
+    <!-- INSTANT RENDER - NO LOADING SCREEN -->
+    <div id="app" class="container">
+        <!-- Content rendered instantly via JavaScript -->
+    </div>
+
+    <!-- ALL JAVASCRIPT INLINE FOR INSTANT EXECUTION -->
+    <script>
+        // ============================================
+        // ULTRA OPTIMIZED JAVASCRIPT - 0ms EXECUTION
+        // ============================================
+
+        // 1. GLOBAL STATE & CONFIG
+        const CONFIG = {
+            WHATSAPP: '+6289657751448',
+            CREDENTIALS: { user: 'irmas', pass: 'falah2024' },
+            DIVISI: [
+                'Keagamaan & Kemasjidan', 'Humas', 'Kesekretariatan',
+                'Pubdekdok', 'PHBI', 'PSDM'
+            ]
+        };
+
+        let AppState = {
+            user: null,
+            page: 'login',
+            formData: {},
+            isOnline: navigator.onLine
+        };
+
+        // 2. INSTANT DOM READY - NO WAITING
+        (() => {
+            // Check authentication instantly
+            const auth = localStorage.getItem('irmas_auth');
+            AppState.user = auth ? JSON.parse(localStorage.getItem('irmas_user')) : null;
+            
+            // Render appropriate page INSTANTLY
+            renderPage();
+            
+            // Add network detection
+            window.addEventListener('online', () => {
+                AppState.isOnline = true;
+                showToast('Koneksi pulih', 'success');
+            });
+            
+            window.addEventListener('offline', () => {
+                AppState.isOnline = false;
+                showToast('Anda sedang offline', 'warning');
+            });
+        })();
+
+        // 3. RENDERING ENGINE
+        function renderPage() {
+            const app = document.getElementById('app');
+            
+            if (!AppState.user) {
+                renderLogin(app);
+            } else {
+                renderDashboard(app);
+            }
+            
+            // Force layout to prevent any jank
+            document.body.clientHeight;
+        }
+
+        function renderLogin(container) {
+            container.innerHTML = `
+                <div class="login-wrapper">
+                    <div class="login-card">
+                        <div class="logo-header">
+                            <div class="logo-icon">🕌</div>
+                            <h1 class="logo-text">IRMAS NURUL FALAH</h1>
+                            <p class="logo-subtitle">Desa Ujungjaya | Absensi Digital</p>
+                        </div>
+                        
+                        <form id="loginForm" class="login-form">
+                            <div class="input-group">
+                                <label class="input-label">
+                                    <span>👤</span> Username
+                                </label>
+                                <input type="text" 
+                                       class="input-field" 
+                                       id="username" 
+                                       placeholder="Masukkan username"
+                                       value="${CONFIG.CREDENTIALS.user}"
+                                       required
+                                       autocomplete="username">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="input-label">
+                                    <span>🔒</span> Password
+                                </label>
+                                <input type="password" 
+                                       class="input-field" 
+                                       id="password" 
+                                       placeholder="Masukkan password"
+                                       value="${CONFIG.CREDENTIALS.pass}"
+                                       required
+                                       autocomplete="current-password">
+                                <div class="flex items-center gap-2 mt-2">
+                                    <input type="checkbox" id="showPass" onchange="togglePassword()">
+                                    <label for="showPass" style="font-size:0.875rem;color:#64748b">Tampilkan password</label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn" onclick="handleLogin(event)">
+                                <span>🚀</span> Masuk Sekarang
+                            </button>
+                            
+                            <div class="text-center mt-6" style="color:#64748b;font-size:0.875rem">
+                                <p>Data langsung terkirim ke WhatsApp Sekretaris</p>
+                                <p class="mt-2">Dikembangkan oleh <strong style="color:#4361ee">Agung Ubaiddillah</strong></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderDashboard(container) {
+            const date = new Date();
+            const formattedDate = date.toLocaleDateString('id-ID', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            container.innerHTML = `
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                
+                <div class="dashboard-container">
+                    <!-- Sidebar -->
+                    <aside class="sidebar" id="sidebar">
+                        <div class="logo-header" style="text-align:left;margin-bottom:2rem">
+                            <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
+                                <div style="font-size:2rem">🕌</div>
+                                <div>
+                                    <h2 style="font-size:1.25rem;font-weight:700">IRMAS Absensi</h2>
+                                    <p style="font-size:0.75rem;color:#94a3b8">Dashboard</p>
+                                </div>
+                            </div>
+                            
+                            <div style="background:rgba(255,255,255,0.1);padding:0.75rem;border-radius:var(--radius-md);margin-bottom:1.5rem">
+                                <div style="font-size:0.875rem;color:#94a3b8">Login sebagai</div>
+                                <div style="font-weight:600;margin-top:0.25rem">${AppState.user?.name || 'Anggota IRMAS'}</div>
+                            </div>
+                        </div>
+                        
+                        <nav style="display:flex;flex-direction:column;gap:0.5rem">
+                            <a href="#" class="nav-item active" onclick="showSection('form')" style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;border-radius:var(--radius-md);background:rgba(255,255,255,0.1);color:white;text-decoration:none">
+                                <span>📝</span> Form Absensi
+                            </a>
+                            <a href="#" class="nav-item" onclick="showSection('guide')" style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;border-radius:var(--radius-md);color:#cbd5e1;text-decoration:none">
+                                <span>📚</span> Panduan
+                            </a>
+                            <a href="#" class="nav-item" onclick="showSection('about')" style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;border-radius:var(--radius-md);color:#cbd5e1;text-decoration:none">
+                                <span>🏢</span> Tentang IRMAS
+                            </a>
+                        </nav>
+                        
+                        <div style="margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1)">
+                            <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem">
+                                <div style="font-size:1.5rem">⏰</div>
+                                <div>
+                                    <div style="font-size:0.875rem;color:#94a3b8" id="currentDate">${formattedDate}</div>
+                                    <div style="font-size:1.25rem;font-weight:700" id="currentTime">${date.toLocaleTimeString('id-ID')}</div>
+                                </div>
+                            </div>
+                            <button onclick="logout()" style="display:flex;align-items:center;gap:0.5rem;width:100%;padding:0.75rem;border-radius:var(--radius-md);background:rgba(239,71,111,0.2);color:#ef476f;border:none;cursor:pointer">
+                                <span>🚪</span> Keluar
+                            </button>
+                        </div>
+                    </aside>
+                    
+                    <!-- Main Content -->
+                    <main class="main-content">
+                        <!-- Attendance Form Section -->
+                        <section id="formSection" style="animation:fadeInUp 0.4s ease-out">
+                            <div style="margin-bottom:1.5rem">
+                                <h1 style="font-size:1.75rem;font-weight:800;margin-bottom:0.5rem;background:linear-gradient(135deg,#4361ee,#f72585);-webkit-background-clip:text;-webkit-text-fill-color:transparent">
+                                    Form Absensi Kehadiran
+                                </h1>
+                                <p style="color:#64748b">Isi data kehadiran Anda untuk kegiatan IRMAS hari ini</p>
+                            </div>
+                            
+                            <div style="background:white;border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow-sm)">
+                                <!-- Date Info -->
+                                <div style="display:flex;align-items:center;gap:0.75rem;padding:0.75rem;background:#f1f5f9;border-radius:var(--radius-md);margin-bottom:1.5rem">
+                                    <div style="font-size:1.5rem">📅</div>
+                                    <div>
+                                        <div style="font-size:0.875rem;color:#64748b">Tanggal Absensi</div>
+                                        <div style="font-weight:600">${formattedDate}</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Form -->
+                                <form id="absensiForm" onsubmit="submitAbsensi(event)">
+                                    <!-- Nama -->
+                                    <div class="input-group">
+                                        <label class="input-label">
+                                            <span>👤</span> Nama Lengkap
+                                        </label>
+                                        <input type="text" 
+                                               class="input-field" 
+                                               id="nama" 
+                                               placeholder="Masukkan nama lengkap Anda"
+                                               required>
+                                    </div>
+                                    
+                                    <!-- Divisi -->
+                                    <div class="input-group">
+                                        <label class="input-label">
+                                            <span>🏢</span> Divisi IRMAS
+                                        </label>
+                                        <select class="input-field" id="divisi" required>
+                                            <option value="">Pilih Divisi Anda</option>
+                                            ${CONFIG.DIVISI.map(div => `<option value="${div}">${div}</option>`).join('')}
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- Kegiatan -->
+                                    <div class="input-group">
+                                        <label class="input-label">
+                                            <span>🎯</span> Nama Kegiatan
+                                        </label>
+                                        <input type="text" 
+                                               class="input-field" 
+                                               id="kegiatan" 
+                                               placeholder="Contoh: Rapat, Pengajian, Kegiatan Sosial"
+                                               required>
+                                    </div>
+                                    
+                                    <!-- Catatan -->
+                                    <div class="input-group">
+                                        <label class="input-label">
+                                            <span>📝</span> Catatan (Opsional)
+                                        </label>
+                                        <textarea class="input-field" 
+                                                  id="catatan" 
+                                                  placeholder="Tambahkan catatan jika diperlukan..."
+                                                  rows="2"
+                                                  style="resize:vertical"></textarea>
+                                    </div>
+                                    
+                                    <!-- Submit Button -->
+                                    <button type="submit" class="btn" style="margin-top:1rem">
+                                        <span>📤</span> Kirim Absensi ke WhatsApp
+                                    </button>
+                                </form>
+                                
+                                <!-- Preview -->
+                                <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e2e8f0">
+                                    <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem">
+                                        <span>👁️</span> Preview Data
+                                    </h3>
+                                    <div style="background:#f8fafc;border-radius:var(--radius-md);padding:1rem;font-size:0.875rem">
+                                        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:0.75rem">
+                                            <div>
+                                                <div style="color:#64748b">Nama:</div>
+                                                <div style="font-weight:600" id="previewNama">-</div>
+                                            </div>
+                                            <div>
+                                                <div style="color:#64748b">Divisi:</div>
+                                                <div style="font-weight:600" id="previewDivisi">-</div>
+                                            </div>
+                                            <div>
+                                                <div style="color:#64748b">Kegiatan:</div>
+                                                <div style="font-weight:600" id="previewKegiatan">-</div>
+                                            </div>
+                                            <div>
+                                                <div style="color:#64748b">Tanggal:</div>
+                                                <div style="font-weight:600">${formattedDate}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- Guide Section (Hidden by default) -->
+                        <section id="guideSection" style="display:none;animation:fadeInUp 0.4s ease-out">
+                            <div style="margin-bottom:1.5rem">
+                                <h1 style="font-size:1.75rem;font-weight:800;margin-bottom:0.5rem">📚 Panduan Penggunaan</h1>
+                                <p style="color:#64748b">Cara menggunakan sistem absensi IRMAS</p>
+                            </div>
+                            
+                            <div style="background:white;border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow-sm)">
+                                ${[1,2,3,4].map(i => `
+                                    <div style="display:flex;gap:1rem;margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:${i < 4 ? '1px solid #e2e8f0' : 'none'}">
+                                        <div style="flex-shrink:0;width:2rem;height:2rem;border-radius:50%;background:linear-gradient(135deg,#4361ee,#f72585);color:white;display:flex;align-items:center;justify-content:center;font-weight:700">${i}</div>
+                                        <div>
+                                            <h3 style="font-weight:600;margin-bottom:0.25rem">${['Isi Form Lengkap','Periksa Data','Kirim ke WhatsApp','Konfirmasi'][i-1]}</h3>
+                                            <p style="color:#64748b">${['Masukkan nama lengkap, pilih divisi, dan tulis kegiatan yang dihadiri','Pastikan data sudah benar sebelum dikirim','Data langsung terkirim ke WhatsApp Sekretaris','Tunggu notifikasi berhasil'][i-1]}</p>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                                
+                                <div style="background:#fff8e1;border-left:4px solid #f59e0b;padding:1rem;border-radius:var(--radius-sm);margin-top:1.5rem">
+                                    <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem">
+                                        <span style="font-size:1.25rem">⚠️</span>
+                                        <strong>Penting!</strong>
+                                    </div>
+                                    <ul style="color:#64748b;padding-left:1.25rem">
+                                        <li>Data dikirim ke: <strong>${CONFIG.WHATSAPP}</strong></li>
+                                        <li>Tidak ada database - langsung ke WhatsApp</li>
+                                        <li>Pastikan koneksi internet stabil</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <!-- About Section (Hidden by default) -->
+                        <section id="aboutSection" style="display:none;animation:fadeInUp 0.4s ease-out">
+                            <div style="margin-bottom:1.5rem">
+                                <h1 style="font-size:1.75rem;font-weight:800;margin-bottom:0.5rem">🏢 Tentang IRMAS</h1>
+                                <p style="color:#64748b">Ikatan Remaja Masjid Jami Nurul Falah Desa Ujungjaya</p>
+                            </div>
+                            
+                            <div style="background:white;border-radius:var(--radius-lg);padding:1.5rem;box-shadow:var(--shadow-sm)">
+                                <div style="text-align:center;margin-bottom:2rem">
+                                    <div style="font-size:4rem;margin-bottom:1rem">🕌</div>
+                                    <h2 style="font-size:1.5rem;font-weight:700;margin-bottom:0.5rem">IRMAS NURUL FALAH</h2>
+                                    <p style="color:#64748b">Organisasi remaja muslim yang berfokus pada pengembangan spiritual, sosial, dan intelektual di Desa Ujungjaya</p>
+                                </div>
+                                
+                                <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:1rem;text-align:center">Divisi IRMAS</h3>
+                                <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));gap:1rem">
+                                    ${CONFIG.DIVISI.map((div, idx) => {
+                                        const icons = ['🕌','📢','📋','📸','📅','👥'];
+                                        const colors = ['#4361ee','#f72585','#06d6a0','#ffd166','#ef476f','#118ab2'];
+                                        return `
+                                            <div style="background:#f8fafc;border-radius:var(--radius-md);padding:1rem;text-align:center;border:2px solid ${colors[idx]}20">
+                                                <div style="font-size:2rem;margin-bottom:0.5rem">${icons[idx]}</div>
+                                                <div style="font-weight:600;font-size:0.875rem">${div}</div>
+                                            </div>
+                                        `;
+                                    }).join('')}
+                                </div>
+                                
+                                <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e2e8f0;text-align:center">
+                                    <p style="color:#64748b">Dikembangkan dengan ❤️ oleh <strong style="color:#4361ee">Agung Ubaiddillah</strong></p>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+            `;
+            
+            // Initialize real-time preview
+            setupFormListeners();
+            startClock();
+        }
+
+        // 4. EVENT HANDLERS
+        function handleLogin(e) {
+            e?.preventDefault();
+            
+            const username = document.getElementById('username')?.value || CONFIG.CREDENTIALS.user;
+            const password = document.getElementById('password')?.value || CONFIG.CREDENTIALS.pass;
+            
+            if (username === CONFIG.CREDENTIALS.user && password === CONFIG.CREDENTIALS.pass) {
+                AppState.user = {
+                    name: 'Anggota IRMAS',
+                    username: username,
+                    loginTime: new Date().toISOString()
+                };
+                
+                localStorage.setItem('irmas_auth', 'true');
+                localStorage.setItem('irmas_user', JSON.stringify(AppState.user));
+                
+                showToast('Login berhasil!', 'success');
+                setTimeout(renderPage, 300);
+            } else {
+                showToast('Username atau password salah', 'error');
+            }
+        }
+
+        function submitAbsensi(e) {
+            e.preventDefault();
+            
+            const nama = document.getElementById('nama').value.trim();
+            const divisi = document.getElementById('divisi').value;
+            const kegiatan = document.getElementById('kegiatan').value.trim();
+            const catatan = document.getElementById('catatan').value.trim();
+            
+            if (!nama || !divisi || !kegiatan) {
+                showToast('Harap lengkapi semua data yang diperlukan!', 'error');
+                return;
+            }
+            
+            const waktu = new Date();
+            const tanggal = waktu.toLocaleDateString('id-ID', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            const jam = waktu.toLocaleTimeString('id-ID');
+            
+            // Format WhatsApp message
+            let message = `*ABSENSI IRMAS NURUL FALAH*%0A%0A`;
+            message += `*Nama Lengkap:*%0A${nama}%0A%0A`;
+            message += `*Divisi:*%0A${divisi}%0A%0A`;
+            message += `*Kegiatan:*%0A${kegiatan}%0A%0A`;
+            message += `*Tanggal:*%0A${tanggal}%0A%0A`;
+            message += `*Waktu Absen:*%0A${jam}%0A%0A`;
+            
+            if (catatan) {
+                message += `*Catatan:*%0A${catatan}%0A%0A`;
+            }
+            
+            message += `_Data dikirim via Sistem Absensi IRMAS_`;
+            
+            // Open WhatsApp
+            const waUrl = `https://wa.me/${CONFIG.WHATSAPP}?text=${message}`;
+            window.open(waUrl, '_blank');
+            
+            // Show success message
+            showToast('Absensi berhasil! WhatsApp dibuka...', 'success');
+            
+            // Reset form
+            setTimeout(() => {
+                document.getElementById('absensiForm').reset();
+                updatePreview();
+            }, 1000);
+        }
+
+        function logout() {
+            localStorage.removeItem('irmas_auth');
+            localStorage.removeItem('irmas_user');
+            AppState.user = null;
+            showToast('Berhasil logout', 'info');
+            setTimeout(renderPage, 300);
+        }
+
+        // 5. UTILITY FUNCTIONS
+        function togglePassword() {
+            const passInput = document.getElementById('password');
+            if (passInput) {
+                passInput.type = passInput.type === 'password' ? 'text' : 'password';
+            }
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar) {
+                sidebar.classList.toggle('active');
+            }
+        }
+
+        function showSection(section) {
+            // Update active nav
+            document.querySelectorAll('.nav-item').forEach(el => {
+                el.classList.remove('active');
+                el.style.background = '';
+                el.style.color = '#cbd5e1';
+            });
+            
+            event.target.classList.add('active');
+            event.target.style.background = 'rgba(255,255,255,0.1)';
+            event.target.style.color = 'white';
+            
+            // Show selected section
+            document.getElementById('formSection').style.display = section === 'form' ? 'block' : 'none';
+            document.getElementById('guideSection').style.display = section === 'guide' ? 'block' : 'none';
+            document.getElementById('aboutSection').style.display = section === 'about' ? 'block' : 'none';
+            
+            // Close sidebar on mobile
+            if (window.innerWidth <= 1024) {
+                toggleSidebar();
+            }
+        }
+
+        function setupFormListeners() {
+            const form = document.getElementById('absensiForm');
+            if (form) {
+                const inputs = form.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => {
+                    input.addEventListener('input', updatePreview);
+                    input.addEventListener('change', updatePreview);
+                });
+                updatePreview();
+            }
+        }
+
+        function updatePreview() {
+            const nama = document.getElementById('nama')?.value || '-';
+            const divisi = document.getElementById('divisi')?.value || '-';
+            const kegiatan = document.getElementById('kegiatan')?.value || '-';
+            
+            const previewNama = document.getElementById('previewNama');
+            const previewDivisi = document.getElementById('previewDivisi');
+            const previewKegiatan = document.getElementById('previewKegiatan');
+            
+            if (previewNama) previewNama.textContent = nama;
+            if (previewDivisi) previewDivisi.textContent = divisi;
+            if (previewKegiatan) previewKegiatan.textContent = kegiatan;
+        }
+
+        function startClock() {
+            function updateClock() {
+                const now = new Date();
+                const timeStr = now.toLocaleTimeString('id-ID');
+                const dateStr = now.toLocaleDateString('id-ID', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                const timeEl = document.getElementById('currentTime');
+                const dateEl = document.getElementById('currentDate');
+                
+                if (timeEl) timeEl.textContent = timeStr;
+                if (dateEl) dateEl.textContent = dateStr;
+            }
+            
+            updateClock();
+            setInterval(updateClock, 1000);
+        }
+
+        function showToast(message, type = 'info') {
+            // Remove existing toast
+            const existing = document.querySelector('.notification');
+            if (existing) existing.remove();
+            
+            const colors = {
+                success: '#06d6a0',
+                error: '#ef476f',
+                warning: '#ffd166',
+                info: '#4361ee'
+            };
+            
+            const icons = {
+                success: '✅',
+                error: '❌',
+                warning: '⚠️',
+                info: '💡'
+            };
+            
+            const toast = document.createElement('div');
+            toast.className = 'notification';
+            toast.style.borderLeftColor = colors[type] || colors.info;
+            toast.innerHTML = `
+                <span style="font-size:1.25rem">${icons[type] || icons.info}</span>
+                <div>${message}</div>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            // Show toast
+            setTimeout(() => toast.classList.add('show'), 10);
+            
+            // Auto remove
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // 6. ENHANCEMENTS
+        // Add touch-friendly styles
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add touch highlight removal
+            document.addEventListener('touchstart', () => {}, {passive: true});
+            
+            // Prevent zoom on input focus (iOS)
+            document.addEventListener('touchmove', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                    e.preventDefault();
+                }
+            }, {passive: false});
+            
+            // Handle back button
+            window.addEventListener('popstate', () => {
+                if (AppState.user && !confirm('Yakin ingin keluar?')) {
+                    history.pushState(null, '', window.location.href);
+                }
+            });
+            
+            // Add service worker for PWA capabilities
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js').catch(console.log);
+            }
+        });
+
+        // 7. PERFORMANCE OPTIMIZATIONS
+        // Debounce function for resize events
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Re-render on orientation change
+                if (window.orientation !== undefined) {
+                    renderPage();
+                }
+            }, 250);
+        });
+
+        // Cache DOM queries
+        const cache = new Map();
+        function $(selector) {
+            if (!cache.has(selector)) {
+                cache.set(selector, document.querySelector(selector));
+            }
+            return cache.get(selector);
+        }
+
+        // 8. ERROR HANDLING
+        window.addEventListener('error', (e) => {
+            console.error('App Error:', e.error);
+            showToast('Terjadi kesalahan, coba refresh halaman', 'error');
+        });
+
+        // 9. INSTALL PROMPT FOR PWA
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            
+            // Show install button after 5 seconds
+            setTimeout(() => {
+                if (deferredPrompt && confirm('Ingin install aplikasi IRMAS Absensi?')) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then(() => {
+                        deferredPrompt = null;
+                    });
+                }
+            }, 5000);
+        });
+    </script>
+
+    <!-- PROGRESSIVE WEB APP MANIFEST -->
+    <link rel="manifest" href="data:application/json,{
+        \"name\": \"IRMAS Absensi\",
+        \"short_name\": \"IRMAS\",
+        \"description\": \"Sistem Absensi IRMAS Nurul Falah\",
+        \"start_url\": \"./\",
+        \"display\": \"standalone\",
+        \"background_color\": \"#4361ee\",
+        \"theme_color\": \"#4361ee\",
+        \"icons\": [
+            {
+                \"src\": \"data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕌</text></svg>\",
+                \"sizes\": \"any\",
+                \"type\": \"image/svg+xml\"
+            }
+        ]
+    }">
+
+    <!-- THEME COLOR FOR MOBILE -->
+    <meta name="theme-color" content="#4361ee">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="IRMAS Absensi">
+    
+    <!-- TWITTER & OG TAGS -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="IRMAS Absensi System">
+    <meta name="twitter:description" content="Sistem absensi digital IRMAS Nurul Falah">
+    <meta property="og:title" content="IRMAS Absensi">
+    <meta property="og:description" content="Sistem absensi digital IRMAS Nurul Falah">
+    <meta property="og:type" content="website">
+</body>
+</html>
